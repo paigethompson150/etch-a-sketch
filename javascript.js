@@ -1,6 +1,7 @@
+//initializes first grid to be 16x16
 let gridCount = 256;
 
-
+//deletes a grid
 function deleteOldGrid() {
     const btn = document.getElementsByClassName('btn');
     while(btn.length > 0) {
@@ -8,6 +9,7 @@ function deleteOldGrid() {
     }
 }
 
+//creates a grid of divs
 function createDiv(count) {
     let box = document.querySelector('#box');
     let i = 0;
@@ -24,7 +26,8 @@ function createDiv(count) {
        
 }
 
-function createButtons() {
+//changes color of div when hovered over
+function changeColor() {
     const btn = document.querySelectorAll('.btn');
     for (let count = 0; count < btn.length; count++)
     {
@@ -33,13 +36,17 @@ function createButtons() {
         })
     }
 }
+
 function main() {
 
+    //creates initial grid and adds event listeners
     createDiv(gridCount);
-    createButtons(); 
+    changeColor(); 
 
+    //creating slider on bottom of screen
     var slider = document.getElementById('myRange');
     var output = document.getElementById('value');
+    
 
     output.innerHTML = slider.value;
     slider.oninput = function() {
@@ -50,7 +57,15 @@ function main() {
         var x = slider.value;
         deleteOldGrid();
         createDiv(x*x);
-        createButtons();
+        changeColor();
+    })
+
+    //adding listener for reset button
+    var reset = document.getElementById('reset');
+    reset.addEventListener('click', () => {
+        deleteOldGrid();
+        createDiv(slider.value*slider.value);
+        changeColor();
     })
 }
 
