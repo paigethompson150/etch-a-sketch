@@ -41,9 +41,15 @@ function main() {
 
     promptBox.addEventListener('click', () => {
         gridCount = prompt('How big is your new grid?');
-        deleteOldGrid();
-        createDiv((gridCount*gridCount));
-        createButtons();
+        if ((gridCount > 0) && (gridCount <= 100)) {
+            deleteOldGrid();
+            createDiv((gridCount*gridCount));
+            createButtons();
+        }
+        else {
+            alert('Grid size must be between 0 and 100!');
+        }
+        
     })
 }
 
