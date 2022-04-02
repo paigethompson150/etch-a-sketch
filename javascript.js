@@ -12,13 +12,16 @@ function deleteOldGrid() {
 function createDiv(count) {
     let box = document.querySelector('#box');
     let i = 0;
-    
+    let arithmetic = ((1/Math.sqrt(count)*100));
+    arithmetic = arithmetic.toFixed(5);
     while (i < count) {
         const lilBox = document.createElement('div');
         lilBox.classList.add('btn');
+        lilBox.setAttribute('style', `height:${arithmetic}%`, `width:${arithmetic}%`);
         box.appendChild(lilBox);
         i += 1;
     }
+       
 }
 
 function createButtons() {
