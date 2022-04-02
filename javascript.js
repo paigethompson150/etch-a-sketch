@@ -1,6 +1,5 @@
 let gridCount = 256;
-let promptBox = document.querySelector('.prompt');
-promptBox.textContent = 'Reset';
+
 
 function deleteOldGrid() {
     const btn = document.getElementsByClassName('btn');
@@ -39,17 +38,19 @@ function main() {
     createDiv(gridCount);
     createButtons(); 
 
-    promptBox.addEventListener('click', () => {
-        gridCount = prompt('How big is your new grid?');
-        if ((gridCount > 0) && (gridCount <= 100)) {
-            deleteOldGrid();
-            createDiv((gridCount*gridCount));
-            createButtons();
-        }
-        else {
-            alert('Grid size must be between 0 and 100!');
-        }
-        
+    var slider = document.getElementById('myRange');
+    var output = document.getElementById('value');
+
+    output.innerHTML = slider.value;
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+
+    slider.addEventListener('click', () => {
+        var x = slider.value;
+        deleteOldGrid();
+        createDiv(x*x);
+        createButtons();
     })
 }
 
