@@ -6,12 +6,12 @@
 
 .btn {
     background-color: red;
-    border: 5px solid white;
+    border: 0.5px solid white;
 }
 
 .black {
     background-color: black;
-    border: 5px solid white;
+    border: 0.5px solid white;
 }
 
 #box {

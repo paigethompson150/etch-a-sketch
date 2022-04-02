@@ -17,7 +17,8 @@ function createDiv(count) {
     while (i < count) {
         const lilBox = document.createElement('div');
         lilBox.classList.add('btn');
-        lilBox.setAttribute('style', `height:${arithmetic}%`, `width:${arithmetic}%`);
+        lilBox.style.width=`${arithmetic}%`;
+        lilBox.style.height=`${arithmetic}%`;
         box.appendChild(lilBox);
         i += 1;
     }
